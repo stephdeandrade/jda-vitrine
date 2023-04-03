@@ -15,6 +15,7 @@ setInterval(function() {
     }
 }, 250);
 
+
 function hasScrolled() {
     var st = $(this).scrollTop();
     
@@ -40,14 +41,76 @@ function hasScrolled() {
     lastScrollTop = st;
 }   
 
-const menu = document.querySelector(".nav-menu")
-const navButton = document.querySelector(".nav-button")
-const menuButton = document.querySelector(".menu-btn")
-const navBtn = document.querySelector(".nav-btn")
+var menuTl = gsap.timeline();
+
+menuTl.to('.menu-btn', {
+    width: "100vh",
+    height: "100vh",
+    opacity: 1,
+    duration: 0.5,
+}, "same").to('.nav-menu', {
+    left: "0%",
+    top: "0%",
+    right: "50%",
+    translateX: "50%",
+}, "same").to('.menu-btn', {
+    scale: 4,
+
+}, "next").to('.nav-menu', {
+    width:"100vw",
+    translateX: "0%",
+}, "next").to('.cls-1', {
+    fill: "#eca380",
+},"next").to('.menu-btn', {
+    width:"100vw",
+    borderRadius: "0%",
+    scale: 1,
+
+}).to('.reveal-1', {
+    opacity: 1,
+    top: 0,
+    duration: 0.2
+}).to('.reveal-2', {
+    opacity: 1,
+    top: 0,
+    duration: 0.2
+}).to('.reveal-3', {
+    opacity: 1,
+    top: 0,
+    duration: 0.2
+}).to('.reveal-4', {
+    opacity: 1,
+    top: 0,
+    duration: 0.2
+})
+
+const navButton = document.querySelector(".nav-button");
+const navBtn = document.querySelector(".nav-btn");
+
+menuTl.reverse();
 
 navButton.addEventListener('click', () => {
-    menu.classList.toggle("active-r")
-    menuButton.classList.toggle("active")
+    menuTl.reversed(!menuTl.reversed());
     navBtn.classList.toggle("close")
     document.body.classList.toggle("of")
 })
+
+let menuItem = document.querySelectorAll(".menu__item-text");
+let menuImage = document.querySelectorAll(".menu__item-image");
+
+// adding eventListeners to all the menuItems.
+for (let i = 0; i < 4; i++) {
+  //   image reveal animation
+  const animation = gsap.to(menuImage[i], {
+    opacity: 1,
+    duration: 0.6,
+    translateY: 0,
+    ease: "ease-in-out"
+  });
+
+  menuItem[i].addEventListener("mouseenter", () => animation.play());
+  menuItem[i].addEventListener("mouseleave", () => animation.reverse());
+
+  //   initialization
+  animation.reverse();
+}
