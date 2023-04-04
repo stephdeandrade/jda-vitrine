@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="js/counterup.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>doc</title>
 </head>
@@ -11,30 +14,103 @@
 
     <div class="container__space"></div>
     
+    <div class="container__compteur reveal">
+        <div class="compteur">
+            <div class="compteur__num" id="compteur__num_1">
+                <span>78</span>%
+            </div>
+            <div class="container__text">
+                taux de réussite globale
+            </div>
+        </div>
+        <div class="compteur">
+            <div class="compteur__num reveal-visible" id="compteur__num_2">
+                <span>78</span>%
+            </div>
+            <div class="container__text">
+                taux de réussite par formation
+            </div>
+        </div>
+        <div class="compteur">
+            <div class="compteur__num reveal-visible" id="compteur__num_3">
+                <span>956</span>
+            </div>
+            <div class="container__text">
+                effectif total des candidats
+            </div>
+        </div>
+        <div class="compteur">
+            <div class="compteur__num reveal-visible" id="compteur__num_4">
+                <span>747</span>
+            </div>
+            <div class="container__text">
+                nombre de candidats reçus
+            </div>
+        </div>
+    </div>
+
+    <!-- scroll horizontal-->
     <section id="horizontal">
         <div class="container">
 
-            <h1>Notre équipe</h1>
+            <h1>Nos équipes</h1>
 
             <div class="horizontal__content">
                 <div class="horizontal__item">
-                    <div class="horizontal__num">1</div>
+                    <div class="horizontal__name">
+                        Sébastien<br><span>Rollet</span>
+                    </div>
+                    <div class="horizontal__role">
+                        Coordinateur<br><span>BBJEPS SCDA</span>
+                    </div>
                 </div>
                 <div class="horizontal__item">
-                    <div class="horizontal__num">2</div>
+                    <div class="horizontal__name">
+
+                    </div>
+                    <div class="horizontal__role">Sébastien<br>Rollet</div>
                 </div>
                 <div class="horizontal__item">
-                    <div class="horizontal__num">3</div>
+                    <div class="horizontal__name">
+
+                    </div>
+                    <div class="horizontal__role">Sébastien<br>Rollet</div>
                 </div>
                 <div class="horizontal__item">
-                    <div class="horizontal__num">4</div>
+                    <div class="horizontal__name">
+
+                    </div>
+                    <div class="horizontal__role">Sébastien<br>Rollet</div>
                 </div>
-                <div class="horizontal__item">
-                    <div class="horizontal__num">5</div>
-                </div>
+
             </div>
 
-            <button>En savoir plus</button>
+            <div class="bouton">
+                <img src="images/bouton.svg" class="bouton">
+                <span>En savoir plus</span>
+                
+            </div>
+            <!-- <button>En savoir plus</button> -->
+        </div>
+    </section>
+
+    <!-- partenaires -->
+    <section class="container__partenaire">
+        <div class="partenaire__box">
+            <div class="marquee__inner">
+                <img src="images/logo_bluegreen.svg">
+                <img src="images/DFCO-Formation-By-FORMAPI.png">
+                <img src="images/ffkmda-logo-rvb-1.png">
+                <img src="images/logo-arc.png">
+                <img src="images/logo-header.png">
+                <img src="images/logo_bluegreen.svg">
+                <img src="images/DFCO-Formation-By-FORMAPI.png">
+                <img src="images/ffkmda-logo-rvb-1.png">
+                <img src="images/logo-arc.png">
+                <img src="images/logo-header.png">
+
+            </div>
+
         </div>
     </section>
 
@@ -98,6 +174,7 @@
         </div>
     </footer>
 
+    <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>

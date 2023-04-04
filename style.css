@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@100;200;300;400;500;600;700;800;900&family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root{
+    font-size: 16px;
+}
 
 *{
 margin: 0;
@@ -22,11 +25,42 @@ html, body{
     width: 100vw;
 }
 
+/* compteur */
+.container__compteur{
+    display: flex;
+    margin: auto;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+.compteur{
+    text-align: center;
+    padding: 0 5%;
+}
+
+.compteur__num{
+    font-size: 6rem;
+    font-weight: 700;
+    color: #1f2745;
+}
+
+.compteur__num span{
+    color: #edac8d;
+}
+
+.container__text{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #1f2745;
+}
+
+/* partie scroll  horizontal */
 #horizontal{
     display: flex;
     height: 100vh;
     padding: 100px 0;
-
 }
 
 .horizontal__content{
@@ -35,18 +69,18 @@ html, body{
 
 /* ici tu peux modifier la taille de la boîte */
 .horizontal__item{
-    border: 1px solid #edac8d;
     padding: 400px 300px;
-    background-color: #1f2745;
+    background-image: url("images/bouclier.svg");
+    background-size: cover;
 }
 
 /* l'écart entre les boîtes */
 .horizontal__item:not(:last-child){
-    margin-right: 150px;
+    margin-right: 300px;
 }
 
 .horizontal__num{
-    font-size: 80px;
+    font-size: 4rem;
     font-weight: 900;
     font-stretch: condensed;
     color: #edac8d;
@@ -55,29 +89,70 @@ html, body{
 .container{
     width: 90%;
     margin: auto;
-    text-align: center;
+    text-align: right;
 }
 
 h1{
-  
-    font-family: 'Alumni Sans', sans-serif;
-    font-size: 50px;
+    font-size: 2.5rem;
     margin-bottom: 50px;
-
     color: #1f2745;
+    text-align: left;
+    text-transform: uppercase;
 }
 
-
-button{
-    border-radius: 20px;
-    border: 0;
-    padding: 15px;
-    background: #1f2745;
-    color: #fff;
-    margin-top: 100px;
+.bouton{
+    float: right;
+}
+.bouton img{
+    position: relative;
+    width: 200px;
+    margin-top: 70px;
+}
+.bouton span{
+    position: relative;
     font-family: 'Barlow', sans-serif;
-    font-size: 15px;
+    font-size: 1rem;
     text-transform: uppercase;
+    left: 158px;
+    top: 88px;
+    color: #fff;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.bouton span:hover{
+    color: #edac8d;
+    transition: 0.2s;
+}
+
+/* partenaires */
+.container__partenaire{
+    height: 130px;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: "----";
+}
+.container__partenaire img{
+    width: 100px;
+    margin-left: 200px;
+}
+.partenaire__box{
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    animation: marquee 30s linear infinite;
+}
+.marquee__inner{
+    display: flex;
+    align-items: center;
+}
+@keyframes marquee{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
 }
 
 /* footer */
@@ -95,7 +170,7 @@ footer{
     display: grid;
     grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
     color: #fff;
-    font-size: 15px;
+    font-size: 0.9rem;
 }
 .footer__content{
     width: 90%;
@@ -129,7 +204,6 @@ footer{
     background:  #fff;
     color: #1f2745;
     cursor: pointer;
-
     transition: 0.2s;
 }
 #submit:hover{
@@ -173,7 +247,7 @@ footer{
 .footer__bottom{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    font-size: 12px;
+    font-size: 0.7rem;
 }
 .copyright p{  
     color: #fff;
