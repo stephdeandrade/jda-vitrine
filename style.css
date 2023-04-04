@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@100;200;300;400;500;600;700;800;900&family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Barlow', sans-serif;;
+}
+
+html{
+    scroll-behavior: initial;
+    overflow: hidden;
+}
+
+html, body{
+    width: 100%;
+    min-height: 100%;
+}
+
+.container__space{
+    height: 100vh; 
+    width: 100vw;
+}
+
+#horizontal{
+    display: flex;
+    height: 100vh;
+    padding: 100px 0;
+
+}
+
+.horizontal__content{
+    display: flex;
+}
+
+/* ici tu peux modifier la taille de la boîte */
+.horizontal__item{
+    border: 1px solid #edac8d;
+    padding: 400px 300px;
+    background-color: #1f2745;
+}
+
+/* l'écart entre les boîtes */
+.horizontal__item:not(:last-child){
+    margin-right: 150px;
+}
+
+.horizontal__num{
+    font-size: 80px;
+    font-weight: 900;
+    font-stretch: condensed;
+    color: #edac8d;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+h1{
+  
+    font-family: 'Alumni Sans', sans-serif;
+    font-size: 50px;
+    margin-bottom: 50px;
+
+    color: #1f2745;
+}
+
+
+button{
+    border-radius: 20px;
+    border: 0;
+    padding: 15px;
+    background: #1f2745;
+    color: #fff;
+    margin-top: 100px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+/* footer */
+footer{
+    height: 38vh;
+    background-color: #1f2745;
+    padding: 100px 0;
+}
+
+/* partie haute du footer */
+.footer__top,
+.footer__bottom{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
+    color: #fff;
+    font-size: 15px;
+}
+.footer__content{
+    width: 90%;
+    padding-right: 30%;
+}
+.footer__logo{
+    display: flex;
+    align-items: center;
+}
+.footer__logo img{
+    width: 100px;
+    margin-right: 30px;
+}
+.newsletter{
+    display: flex;
+    margin: 50px 0 30px 0;
+}
+#email{
+    border-radius: 30px 0 0 30px;
+    border: 0;
+    border-right: 1px solid #1f2745;
+    width: 300px;
+    padding: 10px 15px;
+    background: #fff;
+    color: #1f2745;
+}
+#submit{
+    border-radius: 0px 30px 30px 0px;
+    border: 0;
+    padding: 10px 15px;
+    background:  #fff;
+    color: #1f2745;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+#submit:hover{
+    background:  #edac8d;
+    transition: 0.2s;
+}
+.footer__link{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.footer__links a{
+    cursor: default;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 0;
+}
+.footer__links a span{
+    cursor: pointer;
+}
+.footer__links a span:hover{
+    color: #edac8d;
+    text-decoration: underline;
+}
+
+.footer__links h1{
+    color: #fff;
+    font-weight: 300;
+}
+
+.footer__line{
+    content: " ";
+    width: 90%;
+    height: 1px;
+    background-color: #fff;
+    margin: 100px auto 40px auto;
+    opacity: 15%;
+}
+
+.footer__bottom{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 12px;
+}
+.copyright p{  
+    color: #fff;
+}
+.footer__legal_links{
+    text-align: right;
+}
+.footer__legal_links a{
+    cursor: default;
+    margin-left: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+.footer__legal_links a span{
+    cursor: pointer;
+}
+.footer__legal_links a span:hover{
+    color: #edac8d;
+    text-decoration: underline;
+}
