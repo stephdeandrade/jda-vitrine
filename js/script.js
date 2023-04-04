@@ -66,23 +66,25 @@ menuTl.to('.menu-btn', {
     borderRadius: "0%",
     scale: 1,
 
-}).to('.reveal-1', {
+}).to('.menu-container', {
+    display: "flex",
+},'reveal').to('.reveal-1', {
     opacity: 1,
     top: 0,
-    duration: 0.2
-}).to('.reveal-2', {
+    duration: 0.1
+}, "reveal").to('.reveal-2', {
     opacity: 1,
     top: 0,
-    duration: 0.2
-}).to('.reveal-3', {
+    duration: 0.3
+}, "reveal").to('.reveal-3', {
     opacity: 1,
     top: 0,
-    duration: 0.2
-}).to('.reveal-4', {
+    duration: 0.5
+}, "reveal").to('.reveal-4', {
     opacity: 1,
     top: 0,
-    duration: 0.2
-})
+    duration: 0.7
+}, "reveal")
 
 const navButton = document.querySelector(".nav-button");
 const navBtn = document.querySelector(".nav-btn");
