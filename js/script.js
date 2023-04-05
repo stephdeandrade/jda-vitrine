@@ -1,3 +1,53 @@
+$(document).ready(($) => {
+    $('#compteur__num_1 span').counterUp({
+        time:  2000,
+        number: 78
+    })
+    $('#compteur__num_2 span').counterUp({
+        time:  2000,
+        number: 78
+    })
+    $('#compteur__num_3 span').counterUp({
+        time:  2000,
+        number: 956
+    })
+    $('#compteur__num_4 span').counterUp({
+        time:  2000,
+        number: 747
+    })
+});
+
+
+/** scroll horizontal */
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+const section_2 = document.getElementById("horizontal");
+let box_items = gsap.utils.toArray(".horizontal_item");
+
+gsap.to(box_items, {
+    xPercent: -100 * (box_items.length - 1),
+    ease: "sine.out",
+    scrollTrigger: {
+       trigger: section_2,
+       pin: true,
+       scrub: 3,
+       snap: 1 / (box_items.length - 1),
+       end: "+=" + section_2.offsetWidth
+    }
+});
+
+
+
 // Hide Header on on scroll down
 var didScroll;
 var lastScrollTop = 0;
@@ -116,3 +166,39 @@ for (let i = 0; i < 4; i++) {
   //   initialization
   animation.reverse();
 }
+
+
+// adding eventListeners to all the formItems.
+for (let i = 0; i < 3; i++) {
+    var anim = new gsap.timeline();
+
+    let formitem = document.querySelectorAll('.cpt');
+    let formImage = document.querySelectorAll(".form__item-image");
+  //   image reveal animation
+  const animation = anim.to('.form-image_text',{
+    opacity: 0,
+    duration: 0.6,
+    ease: "ease-in-out"
+  }).to(formImage[i], {
+    opacity: 1,
+    duration: 0.6,
+    ease: "ease-in-out"
+  });
+
+
+  formitem[i].addEventListener("mouseenter", () => animation.play());
+  formitem[i].addEventListener("mouseleave", () => animation.reverse());
+
+  //   initialization
+  animation.reverse();
+}
+
+ /**compteur */
+ 
+ const iButton = document.querySelector('.i-button');
+ const form = document.querySelector('.inscription-form');
+
+ iButton.addEventListener('click', () =>{
+    form.classList.toggle('open')
+ });
+
