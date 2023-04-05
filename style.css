@@ -636,7 +636,7 @@ footer{
 
 .description{
     width: 90%;
-    margin: 50px auto 150px;
+    margin: 50px auto 100px;
 }
 
 .description h1{
@@ -691,4 +691,82 @@ footer{
     0% { transform: translateX(5%);
         opacity: 0; }
     100% { opacity: 1; }
+}
+
+/* page FINANCEMENT */
+.container__description{
+    width: 90%;
+    margin: auto;
+}
+.description ul{
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+
+.description li{
+    font-size: 1.2rem;
+    background-image: url(images/bouclier_list.svg);
+    background-position: 0%;
+    padding: 0px 0 4px 40px;
+    background-repeat: no-repeat;
+    display: flex;
+    animation: swipeLeft 1s ease-in-out;
+}
+.sous_titre{
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.images__aide{
+    display: flex;
+    width: 90%;
+    margin: 40px auto;
+    justify-content: space-between;
+}
+.images__aide img{
+    margin: 0px auto;
+}
+
+.images__aide_block{
+    display: block;
+}
+.images__aide_block p{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.remuneration__grid{
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
+}
+.remuneration__grid p{
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+   
+    padding: 10px;
+    text-align: center;
+}
+.remuneration__grid p span{
+    color: #edac8d;
+}
+
+.p__grid_bottom{
+    border-left: 5px solid #1f2745;
+    border-bottom: 5px solid #1f2745;
+}
+.p__grid_middle{
+    border-left: 5px solid #1f2745;
+    border-bottom: 5px solid #1f2745;
+}
+.p__grid_left{
+    border-bottom: 5px solid #1f2745;
+}
+.p_margin_top{
+    margin-bottom: 40px;
 }
