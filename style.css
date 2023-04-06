@@ -358,7 +358,7 @@ transition: 0.5s ease-in-out;
 }
 
 .compteur__num span{
-    color: #edac8d;
+    color: #f5a37b;
 }
 
 .container__text{
@@ -396,7 +396,7 @@ transition: 0.5s ease-in-out;
     font-size: 4rem;
     font-weight: 900;
     font-stretch: condensed;
-    color: #edac8d;
+    color: #f5a37b;
 }
 
 .container{
@@ -413,7 +413,7 @@ h1{
     text-transform: uppercase;
 }
 h1 span{
-    color: #edac8d;
+    color: #f5a37b;
 }
 
 .bouton{
@@ -436,7 +436,7 @@ h1 span{
     cursor: pointer;
 }
 .bouton span:hover{
-    color: #edac8d;
+    color: #f5a37b;
     transition: 0.2s;
 }
 
@@ -471,7 +471,7 @@ h1 span{
     font-weight: 500;
 }
 .horizontal__name span{
-    color: #edac8d;
+    color: #f5a37b;
     font-weight: 600;
     font-size: 4rem;
     text-transform: uppercase;
@@ -496,7 +496,7 @@ h1 span{
     text-overflow: "----";
 }
 .container__partenaire img{
-    width: 100px;
+    width: 120px;
     margin-left: 200px;
 }
 .partenaire__box{
@@ -570,7 +570,7 @@ footer{
     transition: 0.2s;
 }
 #submit:hover{
-    background:  #edac8d;
+    background:  #f5a37b;
     transition: 0.2s;
 }
 .footer__link{
@@ -589,7 +589,7 @@ footer{
     cursor: pointer;
 }
 .footer__links a span:hover{
-    color: #edac8d;
+    color: #f5a37b;
     text-decoration: underline;
 }
 
@@ -628,7 +628,7 @@ footer{
     cursor: pointer;
 }
 .footer__legal_links a span:hover{
-    color: #edac8d;
+    color: #f5a37b;
     text-decoration: underline;
 }
 
@@ -748,12 +748,11 @@ footer{
     font-weight: 600;
     width: 100%;
     height: 100%;
-   
     padding: 10px;
     text-align: center;
 }
 .remuneration__grid p span{
-    color: #edac8d;
+    color: #f5a37b;
 }
 
 .p__grid_bottom{
@@ -769,4 +768,114 @@ footer{
 }
 .p_margin_top{
     margin-bottom: 40px;
+}
+
+/* page CONTACT */
+.contact__content{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 100px;
+    display: flex;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 100px;
+}
+
+form label{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #1f2745;
+}
+
+form label span{
+    color: #f5a37b;
+}
+
+form input, textarea{
+    margin-bottom: 30px;
+    border: 0;
+    border-bottom: 1px solid #1f2745;
+    resize: vertical;
+    padding: 10px 15px;
+    background: #fff;
+    color: #1f2745;
+}
+
+form textarea{
+    min-height: 37px;
+}
+
+form button{
+    margin-top: 10px;
+    margin-left: auto;
+    cursor: pointer;
+    float: right;
+}
+.boutton_envoyer{
+    background: transparent;
+    border: 0;
+}
+footer button img{
+    cursor: pointer;
+    z-index: 1000;
+    position: absolute;
+}
+
+.contact__social{
+    margin-left: 100px;
+    display: block;
+    width: 50%;
+    text-transform: uppercase;  
+}
+
+.social__link{
+    margin-bottom: 40px;
+}
+.social__link h2{
+    color: #f5a37b;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.social__link a{
+    display: block;
+    margin-bottom: 15px;
+    color: #1f2745;
+    font-weight: 500;
+    cursor: default;
+}
+.social__link span{
+    cursor: pointer;
+}
+.social__link span:hover{
+    text-decoration: underline;
+}
+.social__link h4{
+    font-weight: 500;
+}
+
+.checkbox__text{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.checkbox__text input{
+    cursor: pointer;
+    accent-color: #1f2745;
+}
+
+.checkbox__text label{
+    font-size: 0.9rem;
+    margin-left: 8px;
+    margin-top: -3px;
+    color: #1f2745;
+    user-select: none;
+    text-transform: none;
+    font-weight: normal;
+    cursor: pointer;
 }
