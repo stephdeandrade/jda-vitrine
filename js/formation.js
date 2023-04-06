@@ -41,108 +41,11 @@ barba.init({
                     duration: 0.5
                 });
                 window.scrollTo({ top: 0});
-
             }
         }
     ]
 })
 
-
-const bleu = document.querySelector('.bleu');
-const blanc = document.querySelector('.blanc');
-const orange = document.querySelector('.orange');
-const overlay1 = document.querySelector('.overlay1');
-const overlay2 = document.querySelector('.overlay2');
-const overlay3 = document.querySelector('.overlay3');
-
-const tl = gsap.timeline();
-
-tl.to(overlay1, {
-    height: "100%",
-    duration: 0.8,
-    delay: 1,
-    ease: 'power2.inOut'
-}, "same").to(blanc,{
-    opacity: 1,
-    duration: 0.8,
-    delay: 1,
-    ease: 'power2.inOut'
-
-}, "same").to(overlay2, {
-    height: "100%",
-    duration: 0.8,
-    ease: 'power2.inOut'
-}, "sam").to(bleu,{
-    opacity: 1,
-    duration: 0.8,
-    ease: 'power2.inOut'
-
-}, "sam").to(overlay3, {
-    height: "100%",
-    duration: 0.8,
-    ease: 'power2.inOut'
-}, "sa").to(bleu,{
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.inOut'
-
-}, "sa").to(blanc,{
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.inOut'
-
-}, "sa").to(orange, {
-    translateY: "-43vh",
-    scale: 0.31 ,
-    duration: 1,
-    ease: 'power2.inOut'
-
-}).to('.loader', {
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.inOut'
-
-}).to('.loader', {
-    display: "none"
-}).fromTo('.text-home',{
-    translateY: 50,
-    opacity: 0,
-},{
-    translateY: 0,
-    opacity: 1,
-
-}).fromTo('.inscription-form',{
-    opacity: 0,
-
-},{
-    opacity: 1,
-
-})
-
-
-
-
-$(document).ready(($) => {
-    $('#compteur__num_1 span').counterUp({
-        time:  2000,
-        number: 78
-    })
-    $('#compteur__num_2 span').counterUp({
-        time:  2000,
-        number: 78
-    })
-    $('#compteur__num_3 span').counterUp({
-        time:  2000,
-        number: 956
-    })
-    $('#compteur__num_4 span').counterUp({
-        time:  2000,
-        number: 747
-    })
-});
-
-
-/** scroll horizontal */
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
@@ -154,23 +57,6 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
-
-const section_2 = document.getElementById("horizontal");
-let box_items = gsap.utils.toArray(".horizontal_item");
-
-gsap.to(box_items, {
-    xPercent: -100 * (box_items.length - 1),
-    ease: "sine.out",
-    scrollTrigger: {
-       trigger: section_2,
-       pin: true,
-       scrub: 3,
-       snap: 1 / (box_items.length - 1),
-       end: "+=" + section_2.offsetWidth
-    }
-});
-
-
 
 // Hide Header on on scroll down
 var didScroll;
@@ -291,9 +177,37 @@ for (let i = 0; i < 4; i++) {
   animation.reverse();
 }
 
+const iButton = document.querySelector('.i-button');
+const form = document.querySelector('.inscription-form');
+
+iButton.addEventListener('click', () =>{
+   form.classList.toggle('open')
+   document.body.classList.toggle("of")
+
+
+}); 
+
+let formsItem = document.querySelectorAll(".cpt-form-text");
+let formsCpt = document.querySelectorAll(".cpt-form-zone");
+
+// adding eventListeners to all the menuItems.
+for (let i = 0; i < 6; i++) {
+  //   image reveal animation
+  const transl = gsap.to(formsCpt[i], {
+    height: "70%",
+    duration: 0.6,
+    ease: "ease-in-out"
+  });
+
+  formsItem[i].addEventListener("mouseenter", () => transl.play());
+  formsItem[i].addEventListener("mouseleave", () => transl.reverse());
+
+  //   initialization
+  transl.reverse();
+}
 
 // adding eventListeners to all the formItems.
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 12; i++) {
     var anim = new gsap.timeline();
 
     let formitem = document.querySelectorAll('.cpt');
@@ -317,94 +231,50 @@ for (let i = 0; i < 3; i++) {
   animation.reverse();
 }
 
- /**compteur */
- 
- const iButton = document.querySelector('.i-button');
- const form = document.querySelector('.inscription-form');
-
- iButton.addEventListener('click', () =>{
-    form.classList.toggle('open')
-    document.body.classList.toggle("of")
-
-
- });
-
- const ratio = .1
+const ratio = .1
 const options = {
     root: null,
     rootMargin: '0px',
     threshold: ratio
 }
 
-const handleIntersect = function (entries, observer) {
-    entries.forEach(function(entry) {
-        if (entry.intersectionRatio > ratio) {
-            var logo = new gsap.timeline();
-            logo.to('.logo-anim', {
-                opacity: 1,
-                duration: 1.5,
-                ease: "ease-in-out",
-            }).to('.trait-anim', {
-                width: "90%",
-                duration: 1,
-                ease: "ease-in-out",
-
-            }).to('.fleche-anim', {
-                opacity: 1,
-                duration: 0.2,
-                scale: 1,
-                ease: "ease-in-out",
-
-            }).to('.logo-fini-anim', {
-                opacity: 1,
-                duration: 0.5,
-                scale: 1,
-                ease: "ease-in-out",
-            })
-            observer.unobserve(entry.target)
-        }
-    })
-}
-
-const observer = new IntersectionObserver(handleIntersect, options)
-observer.observe(document.querySelector('.logo-anim'))
-
 const titleIntersect = function (entries, observ) {
     entries.forEach(function(entry) {
         if (entry.intersectionRatio > ratio) {
-            entry.target.classList.add('reveal-visible')
+            entry.target.classList.add('cpt-visible')
             observ.unobserve(entry.target)
         }
     })
 }
 
 const observ = new IntersectionObserver(titleIntersect, options)
-document.querySelectorAll('.reval').forEach(function (r) {
+document.querySelectorAll('.formation-cpt').forEach(function (r) {
     observ.observe(r)
 })
-const mapIntersect = function (entries, obser) {
-    entries.forEach(function(entry) {
-        if (entry.intersectionRatio > ratio) {
-            var map = new gsap.timeline();
 
-            map.to('.carte', {
-                opacity: 1,
-                scale: 1,
-                duration: 0.5,
-                ease: "ease-in-out"
-            }).to('.map-reveal', {
-                opacity: 1,
-                translateY: 0,
-                duration: 0.5,
-                ease: "ease-in-out"
-            })
-            obser.unobserve(entry.target)
-        }
-    })
-}
+var scroll = document.querySelector(".form-cpt");
 
-const obser = new IntersectionObserver(mapIntersect, options)
-obser.observe(document.querySelector('.carte'))
+scroll.addEventListener("wheel", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  scroll.scrollBy(0, event.deltaY);
+});
 
+const listOne = document.querySelector('.list-one')
+const listTwo = document.querySelector('.list-two')
+const formationTwo = document.querySelector('.container-formation')
+const formationOne = document.querySelector('.formation-container')
 
+listOne.addEventListener('click', () =>{
+    formationOne.classList.remove('dn');
+    formationTwo.classList.add('dn');
+    listOne.classList.add('list-active')
+    listTwo.classList.remove('list-active')
+});
 
+listTwo.addEventListener('click', () =>{
+    formationTwo.classList.remove('dn');
+    formationOne.classList.add('dn');
+    listOne.classList.remove('list-active')
+    listTwo.classList.add('list-active')
+});
