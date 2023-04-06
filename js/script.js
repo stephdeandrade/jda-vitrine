@@ -1,3 +1,53 @@
+// Transition
+
+const allBandes = document.querySelectorAll('.bande');
+const TLAnim = new TimelineMax();
+
+function delay(n) {
+    return new Promise((done) => {
+        setTimeout(() => {
+            done();
+        }, n)
+    })
+}
+
+barba.init({
+
+    sync: true,
+
+    transitions: [
+        {
+            async leave(){
+                const done = this.async();
+
+                TLAnim
+                .to(allBandes, {
+                    height: '100%',
+                    stagger: 0.05,
+                    ease: "power2.out", 
+                    duration: 0.5
+                });
+
+                await delay(1500);
+                done();
+
+            },
+            enter(){
+                TLAnim
+                .to(allBandes, {
+                    height: '0%',
+                    stagger: 0.05,
+                    ease: "power2.out", 
+                    duration: 0.5
+                });
+                window.scrollTo({ top: 0});
+
+            }
+        }
+    ]
+})
+
+
 const bleu = document.querySelector('.bleu');
 const blanc = document.querySelector('.blanc');
 const orange = document.querySelector('.orange');

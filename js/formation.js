@@ -1,3 +1,51 @@
+// Transition
+
+const allBandes = document.querySelectorAll('.bande');
+const TLAnim = new TimelineMax();
+
+function delay(n) {
+    return new Promise((done) => {
+        setTimeout(() => {
+            done();
+        }, n)
+    })
+}
+
+barba.init({
+
+    sync: true,
+
+    transitions: [
+        {
+            async leave(){
+                const done = this.async();
+
+                TLAnim
+                .to(allBandes, {
+                    height: '100%',
+                    stagger: 0.05,
+                    ease: "power2.out", 
+                    duration: 0.5
+                });
+
+                await delay(1500);
+                done();
+
+            },
+            enter(){
+                TLAnim
+                .to(allBandes, {
+                    height: '0%',
+                    stagger: 0.05,
+                    ease: "power2.out", 
+                    duration: 0.5
+                });
+                window.scrollTo({ top: 0});
+            }
+        }
+    ]
+})
+
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
@@ -158,6 +206,31 @@ for (let i = 0; i < 6; i++) {
   transl.reverse();
 }
 
+// adding eventListeners to all the formItems.
+for (let i = 0; i < 12; i++) {
+    var anim = new gsap.timeline();
+
+    let formitem = document.querySelectorAll('.cpt');
+    let formImage = document.querySelectorAll(".form__item-image");
+  //   image reveal animation
+  const animation = anim.to('.form-image_text',{
+    opacity: 0,
+    duration: 0.6,
+    ease: "ease-in-out"
+  }).to(formImage[i], {
+    opacity: 1,
+    duration: 0.6,
+    ease: "ease-in-out"
+  });
+
+
+  formitem[i].addEventListener("mouseenter", () => animation.play());
+  formitem[i].addEventListener("mouseleave", () => animation.reverse());
+
+  //   initialization
+  animation.reverse();
+}
+
 const ratio = .1
 const options = {
     root: null,
@@ -178,3 +251,30 @@ const observ = new IntersectionObserver(titleIntersect, options)
 document.querySelectorAll('.formation-cpt').forEach(function (r) {
     observ.observe(r)
 })
+
+var scroll = document.querySelector(".form-cpt");
+
+scroll.addEventListener("wheel", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  scroll.scrollBy(0, event.deltaY);
+});
+
+const listOne = document.querySelector('.list-one')
+const listTwo = document.querySelector('.list-two')
+const formationTwo = document.querySelector('.container-formation')
+const formationOne = document.querySelector('.formation-container')
+
+listOne.addEventListener('click', () =>{
+    formationOne.classList.remove('dn');
+    formationTwo.classList.add('dn');
+    listOne.classList.add('list-active')
+    listTwo.classList.remove('list-active')
+});
+
+listTwo.addEventListener('click', () =>{
+    formationTwo.classList.remove('dn');
+    formationOne.classList.add('dn');
+    listOne.classList.remove('list-active')
+    listTwo.classList.add('list-active')
+});

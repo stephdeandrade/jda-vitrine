@@ -681,10 +681,14 @@ transition: 0.5s ease-in-out;
 
 .form-cpt{
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    overflow-y: scroll;
+    overflow: auto;
+    scroll-behavior: smooth;
+    
     height: 80%;
+}
+
+.form-cpt::-webkit-scrollbar{
+    display: block;
 }
 
 .form-button-zone{
@@ -780,8 +784,8 @@ transition: 0.5s ease-in-out;
     text-overflow: "----";
 }
 .container__partenaire img{
-    width: 100px;
-    margin-left: 200px;
+    width: 140px;
+    margin-left: 170px;
 }
 .partenaire__box{
     display: inline-block;
@@ -1221,7 +1225,6 @@ form{
 }
 .description p{
     font-size: 1.2rem;
-    font-weight: 500;
     width: 35%;
     animation: swipeLeft 1s ease-in-out;
 }
@@ -1283,7 +1286,7 @@ form{
 
 .description li{
     font-size: 1.2rem;
-    background-image: url(images/bouclier_list.svg);
+    background-image: url(image/bouclier_list.svg);
     background-position: 0%;
     padding: 0px 0 4px 40px;
     background-repeat: no-repeat;
@@ -1378,7 +1381,7 @@ form{
 }
 .cpt-form-text {
     width: 100%;    
-    height: 25%;
+    height: 24%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1442,8 +1445,265 @@ form{
 
 .formation-header h1{
     font-size: 3rem;
-        margin-bottom: 80px;
         color: #1f2745;
         text-align: left;
         text-transform: uppercase;
+}
+
+.formation-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.category-list{
+    width: 8%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-one{
+    width: 40%;
+    height: 5.5vh;
+    border-radius: 5px;
+    /* background-color: #dcdcdc; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-two{
+    width: 40%;
+    height: 5.5vh;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-one svg{
+    width: 60%;
+    fill: #1f2745;
+}
+.list-two svg{
+    width: 80%;
+    fill: #1f2745;
+
+}
+
+.dn{
+    display: none;
+}
+
+.list-active{
+        background-color: #dcdcdc;
+        fill: #f5a37b;
+    transition: 0.1s ease-in-out;
+
+}
+.list-active svg{
+        fill: #f5a37b;
+        transition: 0.1s ease-in-out;
+
+}
+
+
+.rgpd-check{
+    width: 10%;
+}
+.rgpd-check svg{
+    width: 100%;
+}
+
+.aide-top{
+    width: 15vw;
+    height: 6.5vh;
+    display: flex;
+    justify-content: center;
+    transform: translateY(80px);
+}
+
+.aide-bottom{
+    width: 15vw;
+    height: 12vh;
+    border-radius: 15px;
+    background-color: #1e274a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.aide-bottom svg{
+    position: absolute;
+
+}
+
+.aide-text{
+    opacity: 0;
+}
+.aide-text p{
+    line-height: 70%;
+}
+.aide-text-weight{
+    color: #fff;
+    font-weight: 500;
+}
+
+.aides-weight-orange{
+    color: #f5a37b;
+    font-weight: 600;
+}
+
+.cont-bandes{
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999999999999999999999999999999999;
+}
+
+.bande{
+    width: 10%;
+    height: 0%;
+    
+}
+
+.bande:nth-child(even){
+    background-color: #f5a37b;
+
+    
+}
+.bande:nth-child(odd){
+    background-color: #1e274a;
+    
+}
+
+
+/* MQ */
+
+@media (max-width: 1920px) {
+    .aide-bottom svg {
+        height: 50%;
+    }
+}
+
+.contact__content{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 100px;
+    display: flex;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 100px;
+}
+
+form label{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #1f2745;
+}
+
+form label span{
+    color: #f5a37b;
+}
+
+form input, textarea{
+    margin-bottom: 30px;
+    border: 0;
+    border-bottom: 1px solid #1f2745;
+    resize: vertical;
+    padding: 10px 15px;
+    background: #fff;
+    color: #1f2745;
+}
+
+form textarea{
+    min-height: 37px;
+}
+
+form button{
+    margin-top: 10px;
+    margin-left: auto;
+    cursor: pointer;
+    float: right;
+}
+.boutton_envoyer{
+    background: transparent;
+    border: 0;
+}
+footer button img{
+    cursor: pointer;
+    z-index: 1000;
+    position: absolute;
+}
+
+.contact__social{
+    margin-left: 100px;
+    display: block;
+    width: 50%;
+    text-transform: uppercase;  
+}
+
+.social__link{
+    margin-bottom: 40px;
+}
+.social__link h2{
+    color: #f5a37b;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.social__link a{
+    display: block;
+    margin-bottom: 15px;
+    color: #1f2745;
+    font-weight: 500;
+    cursor: default;
+}
+.social__link span{
+    cursor: pointer;
+}
+.social__link span:hover{
+    text-decoration: underline;
+}
+.social__link h4{
+    font-weight: 500;
+}
+
+.checkbox__text{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.checkbox__text input{
+    cursor: pointer;
+    accent-color: #1f2745;
+}
+
+.checkbox__text label{
+    font-size: 0.9rem;
+    margin-left: 8px;
+    margin-top: -3px;
+    color: #1f2745;
+    user-select: none;
+    text-transform: none;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+#checkbox{
+    width: 20%
 }

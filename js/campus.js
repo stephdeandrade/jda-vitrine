@@ -1,3 +1,51 @@
+// Transition
+
+const allBandes = document.querySelectorAll('.bande');
+const TLAnim = new TimelineMax();
+
+function delay(n) {
+    return new Promise((done) => {
+        setTimeout(() => {
+            done();
+        }, n)
+    })
+}
+
+barba.init({
+
+    sync: true,
+
+    transitions: [
+        {
+            async leave(){
+                const done = this.async();
+
+                TLAnim
+                .to(allBandes, {
+                    height: '100%',
+                    stagger: 0.05,
+                    ease: "power2.out", 
+                    duration: 0.5
+                });
+
+                await delay(1500);
+                done();
+
+            },
+            enter(){
+                TLAnim
+                .to(allBandes, {
+                    height: '0%',
+                    stagger: 0.05,
+                    ease: "power2.out", 
+                    duration: 0.5
+                });
+                window.scrollTo({ top: 0}); 
+            }
+        }
+    ]
+})
+
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
@@ -138,3 +186,24 @@ iButton.addEventListener('click', () =>{
 
 
 }); 
+
+const ratio = .1
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: ratio
+}
+
+const titleIntersect = function (entries, observ) {
+    entries.forEach(function(entry) {
+        if (entry.intersectionRatio > ratio) {
+            entry.target.classList.add('reveal-visible')
+            observ.unobserve(entry.target)
+        }
+    })
+}
+
+const observ = new IntersectionObserver(titleIntersect, options)
+document.querySelectorAll('.reval').forEach(function (r) {
+    observ.observe(r)
+})
